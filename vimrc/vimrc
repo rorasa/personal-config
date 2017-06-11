@@ -1,0 +1,102 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Personal Vim configuration file (.vimrc)
+" 
+" Maintained by Wattanit Hotrakool (contact@wattanit.info)
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Load plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+execute pathogen#infect()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Force use of vim settings instead of vi settings.
+set nocompatible
+
+" Change default colour scheme
+colorscheme molokai
+
+" Enalbe syntax colouring
+syntax enable
+
+" Enable filetype detection
+filetype on
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TAB and SPACES settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Number of spaces displayed per TAB
+set tabstop=4
+
+" Number of spaces inserted per TAB
+set softtabstop=4
+
+" Force TAB into spaces
+set expandtab
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UI settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Show line numbers
+set number
+
+" Show current command in Command Mode
+set showcmd
+
+" Highlight current line the cursor is on
+set cursorline
+
+" Enable Visual autocomplete for command menu
+set wildmenu
+
+" Highlight matching parenthesis
+set showmatch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Instant search as type
+set incsearch
+
+" Highlight search matches
+set hlsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key binding
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" Map go to top and go to bottom to H and L
+nnoremap H 0
+nnoremap L $
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader shortchut mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>n :call ToggleNumber()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocommand settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup configgroup
+    autocmd!
+    " disable expandtab for Makefile
+    autocmd FileType Makefile setlocal noexpandtab
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom utility functions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle between normal line number and relative number
+function! ToggleNumber()
+    if(&relativenumber==1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
