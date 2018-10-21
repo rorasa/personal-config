@@ -10,4 +10,4 @@ wget https://raw.githubusercontent.com/rupa/z/master/z.sh
 mv z.sh $HOME/.oh-my-zsh/z.sh
 
 # Install .zshrc configuration
-cp .zshrc $HOME/.zshrc 
+cp zshrc $HOME/.zshrc 
